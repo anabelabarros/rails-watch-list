@@ -1,9 +1,8 @@
 class ListsController < ApplicationController
-  before_action :set_list, only: [:show, :destroy]
+ before_action :set_list, only: [:show, :destroy]
 
   def index
     @lists = List.all
-    render body: nil, status: :no_content
   end
 
   def show
@@ -34,11 +33,6 @@ class ListsController < ApplicationController
   def set_list
     @list = List.find(params[:id])
   end
-
-  def list_params
-    params.require(:list).permit(:name, :photo)
-  end
-
 
   def list_params
     params.require(:list).permit(:name, :photo)
